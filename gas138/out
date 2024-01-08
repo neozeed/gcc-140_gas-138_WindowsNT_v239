@@ -1,0 +1,66 @@
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c app.c
+app.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c append.c
+append.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c as.c
+as.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c atof-gen.c
+atof-gen.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c atof-iee.c
+atof-iee.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c bignum-c.c
+bignum-c.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c expr.c
+expr.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c flonumct.c
+flonumct.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c flonumcp.c
+flonumcp.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c flonumul.c
+flonumul.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c frags.c
+frags.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c hash.c
+hash.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c hex-val.c
+hex-val.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c i386.c
+i386.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c input-fl.c
+input-fl.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c input-sc.c
+input-sc.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c messages.c
+messages.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c obstack.c
+obstack.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c omfwrite.c
+omfwrite.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c output-f.c
+output-f.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c read.c
+read.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c subsegs.c
+subsegs.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c symbols.c
+symbols.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c version.c
+version.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c write.c
+write.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c xenixomf.c
+xenixomf.c
+xenixomf.c(582) : warning C4047: 'initializing' : 'long ' differs in levels of indirection from 'void *'
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c xmalloc.c
+xmalloc.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c xrealloc.c
+xrealloc.c
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c alloca.c
+alloca.c
+alloca.c(46) : warning C4067: unexpected characters following '#endif' directive - newline expected
+	cl /I. /Ic:\msvc32s\include /DUSG /DWORKING_DOT_WORD /c error.c
+error.c
+	link -out:ax386.exe app.obj append.obj as.obj atof-gen.obj atof-iee.obj bignum-c.obj expr.obj  flonumct.obj flonumcp.obj flonumul.obj frags.obj hash.obj hex-val.obj i386.obj  input-fl.obj input-sc.obj messages.obj obstack.obj omfwrite.obj output-f.obj read.obj  subsegs.obj symbols.obj version.obj write.obj xenixomf.obj xmalloc.obj xrealloc.obj  alloca.obj error.obj
+Microsoft (R) 32-Bit Executable Linker Version 1.00
+Copyright (C) Microsoft Corp 1992-93. All rights reserved.
+

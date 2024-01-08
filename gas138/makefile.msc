@@ -1,0 +1,17 @@
+
+CC = cl386
+CFLAGS = /I. /I\xenixnt\h /DUSG /DWORKING_DOT_WORD
+
+OBJS = app.obj append.obj as.obj atof-gen.obj atof-ie.obj bignum-c.obj expr.obj \
+	flonumct.obj flonumcp.obj flonumul.obj frags.obj hash.obj hex-val.obj i386.obj \
+	input-fl.obj input-sb.obj messages.obj obstack.obj omfwrite.obj output-f.obj read.obj \
+	subsegs.obj symbols.obj version.obj write.obj xenixomf.obj xmalloc.obj xrealloc.obj \
+	alloca.obj error.obj
+
+
+ax386.exe: $(OBJS)
+	link -out:ax386.exe $(OBJS)
+
+
+clean:
+	-del /F $(OBJS)
