@@ -56,7 +56,8 @@
 #include <errno.h>
 
 #ifndef errno
-int errno;
+//Early NT doesn't have errno
+//int errno;
 #endif
 
 void yyerror ();
