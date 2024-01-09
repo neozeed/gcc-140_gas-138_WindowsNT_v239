@@ -23,13 +23,13 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
    in the proper order, and counts the time used by each.
    Error messages and low-level interface to malloc also handled here.  */
 
-#include "config.h"
-#include <sys/types.h>
 #include <stdio.h>
 #include <signal.h>
+#include "-setjmp.h"	/*hihgly suspect*/
 #include <setjmp.h>
-
+#include <sys/types.h>
 #include <sys/stat.h>
+#include "config.h"
 
 
 #ifndef _MSVC

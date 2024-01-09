@@ -26,7 +26,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 
 #include <stdio.h>
 #include <varargs.h>
-#include <_ctype.h>
+#include "_ctype.h"
 
 #ifdef __GNUC__
 #define alloca __builtin_alloca

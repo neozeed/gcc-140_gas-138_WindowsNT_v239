@@ -35,7 +35,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <_ctype.h>
+#include "_ctype.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include "as.h"

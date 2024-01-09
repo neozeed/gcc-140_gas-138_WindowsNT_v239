@@ -25,13 +25,14 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 /* ??? not all decl nodes are given the most useful possible
    line numbers.  For example, the CONST_DECLs for enum values.  */
 
+#include <stdio.h>
+
 #include "config.h"
 #include "tree.h"
 #include "flags.h"
 #include "c-tree.h"
 #include "c-parse.h"
 
-#include <stdio.h>
 
 /* In grokdeclarator, distinguish syntactic contexts of declarators.  */
 enum decl_context

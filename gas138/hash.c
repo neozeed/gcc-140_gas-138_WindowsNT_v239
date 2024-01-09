@@ -125,7 +125,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
 #include <stdio.h>
 #define TRUE           (1)
 #define FALSE          (0)
-#include <_ctype.h>
+#include "_ctype.h"
 #define min(a, b)	((a) < (b) ? (a) : (b))
 
 #include "hash.h"

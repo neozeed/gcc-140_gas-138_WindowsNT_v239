@@ -1,0 +1,11 @@
+dnl Process this file with autoconf to produce a configure script.
+M_INIT(reduce.c)
+M_PROG_GCC
+M_PROG_INSTALL
+M_ISC
+M_STDC_HEADERS
+M_USG
+M_MISSING_FUNCS(strerror)
+M_ALLOCA
+M_MINIX
+M_OUTPUT(.)

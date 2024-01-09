@@ -1,3 +1,4 @@
+#ifdef USEBROKENCTYPE
 /***
 *ctype.h - character conversion macros and ctype macros
 *
@@ -55,8 +56,8 @@ int isalnum(int);
 int isprint(int);
 int isgraph(int);
 int iscntrl(int);
-int toupper(int);
-int tolower(int);
+//int toupper(int);
+//int tolower(int);
 int _tolower(int);
 int _toupper(int);
 int __isascii(int);
@@ -120,3 +121,6 @@ int __isleadbyte(int);
 
 #define _INC_CTYPE
 #endif	/* _INC_CTYPE */
+#else
+#include <ctype.h>
+#endif

@@ -14,13 +14,16 @@ CC1OBJ = c-tab.obj c-decl.obj c-typeck.obj c-conv.obj toplev.obj version.obj \
 	expr.obj stmt.obj expmed.obj explow.obj optabs.obj varasm.obj symout.obj \
 	dbxout.obj sdbout.obj emit-rtl.obj intgrate.obj jump.obj cse.obj \
 	loop.obj flow.obj stupid.obj combine.obj regclass.obj localall.obj glblallc.obj \
-	reload.obj reload1.obj callersv.obj final.obj recog.obj pragma.obj
+	reload.obj reload1.obj callersv.obj final.obj recog.obj pragma.obj \
+	errno.obj
 
 CC1INSNOBJ = insn-emt.obj insn-xrt.obj insn-out.obj insn-pep.obj insn-rcg.obj \
 	obstack.obj
 
 CC1DEPS: insn-flg.h insn-cod.h insn-cnf.h insn-emt.c insn-pep.c insn-rcg.c \
 	insn-xrt.c insn-out.c insn-out.obj
+
+CCCPOBJ = cccp.obj cexp.obj version.obj obstack.obj alloca.obj
 
 default: cc1.exe
 
@@ -30,6 +33,13 @@ cc1.exe: $(CC1DEPS) $(CC1OBJ) $(CC1INSNOBJ) insn-flg.h insn-cnf.h
 	cvtomf -g symout.obj
 	$(link) $(conflags) -out:cc1.exe $(CC1OBJ) $(CC1INSNOBJ) alloca.obj $(conlibs)
 
+cccp.exe: $(CCCPOBJ)
+	cvtomf -g cccp.obj 
+	cvtomf -g cexp.obj 
+	cvtomf -g version.obj 
+	cvtomf -g obstack.obj 
+	cvtomf -g alloca.obj
+	$(link) $(conflags) -out:cccp.exe $(CCCPOBJ) $(conlibs)
 
 cc1x.exe: $(CC1DEPS) $(CC1OBJ) $(CC1INSNOBJ) insn-flg.h insn-cnf.h
 	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:cc1.exe $(CC1OBJ) $(CC1INSNOBJ) alloca.obj $(conlibs)

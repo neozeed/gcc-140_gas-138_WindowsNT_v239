@@ -24,7 +24,7 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
  * Here, "operand"s are of expressions, not instructions.
  */
 
-#include <_ctype.h>
+#include "_ctype.h"
 #include "as.h"
 #include "flonum.h"
 #include "read.h"

@@ -27,8 +27,8 @@ the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.  */
    and to process initializations in declarations (since they work
    like a strange sort of assignment).  */
 
-#include "config.h"
 #include <stdio.h>
+#include "config.h"
 #include "tree.h"
 #include "c-tree.h"
 #include "flags.h"

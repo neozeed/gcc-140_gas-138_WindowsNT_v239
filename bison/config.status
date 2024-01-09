@@ -1,0 +1,7 @@
+DEFS=""
+LIBS=""
+CC="gcc -O"
+INSTALL="/usr/bin/install -c"
+INSTALLDATA="/usr/bin/install -c -m 644"
+ALLOCA=""
+

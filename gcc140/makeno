@@ -3,18 +3,24 @@ CPU=i386
 !include <ntwin32.mak>
 #
 #CFLAGS= /Ic:\xenixnt\h /I. /Iconfig
-#CFLAGS= /Ic:\msvc32s\include /I. /Iconfig
-CFLAGS= /I. /Iconfig
+#CFLAGS= /Ic:\msvc32s\c386\include /I. /Iconfig
+CFLAGS= /Ic:\msvc32s\include /I. /Iconfig
+#CFLAGS= /I. /Iconfig
 
-#CC = cl /Od
-CC = cl386 /u /Od
+CC = cl /Od
+#CC = cl386 /u /Od
+
+# fake error integer for systems with no Unix error info like 1991 NT
+#
+ERRNO =	#errno.obj
 
 CC1OBJ = c-tab.obj c-decl.obj c-typeck.obj c-conv.obj toplev.obj version.obj \
 	tree.obj pr-tree.obj stor-lay.obj fold-con.obj rtl.obj rtlanal.obj \
 	expr.obj stmt.obj expmed.obj explow.obj optabs.obj varasm.obj symout.obj \
 	dbxout.obj sdbout.obj emit-rtl.obj intgrate.obj jump.obj cse.obj \
 	loop.obj flow.obj stupid.obj combine.obj regclass.obj localall.obj glblallc.obj \
-	reload.obj reload1.obj callersv.obj final.obj recog.obj pragma.obj
+	reload.obj reload1.obj callersv.obj final.obj recog.obj pragma.obj $(ERRNO)
+
 
 CC1INSNOBJ = insn-emt.obj insn-xrt.obj insn-out.obj insn-pep.obj insn-rcg.obj \
 	obstack.obj
@@ -22,9 +28,15 @@ CC1INSNOBJ = insn-emt.obj insn-xrt.obj insn-out.obj insn-pep.obj insn-rcg.obj \
 CC1DEPS: insn-flg.h insn-cod.h insn-cnf.h insn-emt.c insn-pep.c insn-rcg.c \
 	insn-xrt.c insn-out.c insn-out.obj
 
-default: cc1.exe
+CCCPOBJ = cccp.obj cexp.obj version.obj obstack.obj alloca.obj
+
+GCCOBJ = gcc.obj version.obj obstack.obj alloca.obj mktemp.obj
+
+all: cc1.exe cccp.exe xgcc.exe
 
 cc1: cc1.exe
+cccp: cccp.exe
+xgcc: xgcc.exe
 
 cc1.exe: $(CC1DEPS) $(CC1OBJ) $(CC1INSNOBJ) insn-flg.h insn-cnf.h
 	$(link) $(conflags) -out:cc1.exe $(CC1OBJ) $(CC1INSNOBJ) alloca.obj $(conlibs)
@@ -32,6 +44,12 @@ cc1.exe: $(CC1DEPS) $(CC1OBJ) $(CC1INSNOBJ) insn-flg.h insn-cnf.h
 
 cc1x.exe: $(CC1DEPS) $(CC1OBJ) $(CC1INSNOBJ) insn-flg.h insn-cnf.h
 	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:cc1.exe $(CC1OBJ) $(CC1INSNOBJ) alloca.obj $(conlibs)
+
+cccp.exe: $(CCCPOBJ)
+	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:cccp.exe $(CCCPOBJ) $(conlibs)
+
+xgcc.exe: gcc.obj $(GCCOBJ)
+	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:xgcc.exe $(GCCOBJ) $(conlibs)
 
 
 genflags.exe: c-tab.obj c-decl.obj c-typeck.obj c-conv.obj toplev.obj \
@@ -99,7 +117,7 @@ insn-pep.c: genpep.exe
 
 
 insn-out.obj: insn-out.c
-	cl386 /u /D__STDC__ /I. /Iconfig /c insn-out.c
+	$(CC) $(CFLAGS) /D__STDC__ /I. /Iconfig /c insn-out.c
 
 c-tab.c: c-parse.y
 	copy /Y c-tab.k c-tab.c

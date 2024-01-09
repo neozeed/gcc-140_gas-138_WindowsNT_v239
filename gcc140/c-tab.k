@@ -1,6 +1,9 @@
 
 /*  A Bison parser, made from ./c-parse.y  */
 
+#include <stdio.h>
+#include <errno.h>
+
 #define YYBISON 1  /* Identify Bison output.  */
 
 #define	IDENTIFIER	258
@@ -51,9 +54,6 @@
 #include "input.h"
 #include "c-parse.h"
 #include "c-tree.h"
-
-#include <stdio.h>
-#include <errno.h>
 
 #ifndef errno
 //Early NT doesn't have errno
