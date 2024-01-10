@@ -6,8 +6,8 @@ CC = cl386
 #CC = cl
 #INCLUDE =  /xenixnt/h
 #INCLUDE = /MSVC32S/C386/INCLUDE
-INCLUDE = /MSVC32S/INCLUDE
-#INCLUDE = /nt/mstools/h
+#INCLUDE = /MSVC32S/INCLUDE
+INCLUDE = /nt/mstools/h
 
 # old 1991 NT's have something missing in ctype.h I never did find it
 # I side stepped it  use  /DUSEBROKENCTYPE if needed

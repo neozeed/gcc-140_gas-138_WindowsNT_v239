@@ -68,16 +68,16 @@ int mkstemp ( char * templ )
 	size_t len ;
 	unsigned tval ;
 	int	fd ;
-	int orig_errno ;
+	//int orig_errno ;
 
-	orig_errno = errno ;
+	//orig_errno = errno ;
 
 	/* do some sanity checks */
 	/* make sure that templ is at least 6 characters long */
 	/* and comprises the "XXXXXX" string at the end */
 	if ((len = strlen(templ)) < 6 ||
 		strcmp( (s = startp = templ + len - 6), MKTEMP_TEMPLATE )) {
-		errno = EINVAL ;
+		//errno = EINVAL ;
 		return -1 ;
 	}
 	for ( ; fch <= 'Z'; val = 0, fch++ ) {
@@ -96,11 +96,11 @@ int mkstemp ( char * templ )
 				tval /= 10 ;
 			}
 			if ((fd = open( templ, O_CREAT | O_EXCL | O_BINARY | O_RDWR, S_IRUSR | S_IWUSR )) != -1) {
-				errno = orig_errno ;
+				//errno = orig_errno ;
 				return fd ;
 			}
 		}
 	}
-	errno = EEXIST ;
+	//errno = EEXIST ;
 	return -1 ;
 }

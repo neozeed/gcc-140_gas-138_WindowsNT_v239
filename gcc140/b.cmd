@@ -1,1 +1,1 @@
-nmake -f makeno cc1
+nmake -f makeno xgcc

@@ -4,11 +4,11 @@ CPU=i386
 #
 #CFLAGS= /Ic:\xenixnt\h /I. /Iconfig
 #CFLAGS= /Ic:\msvc32s\c386\include /I. /Iconfig
-CFLAGS= /Ic:\msvc32s\include /I. /Iconfig
-#CFLAGS= /I. /Iconfig
+#CFLAGS= /Ic:\msvc32s\include /I. /Iconfig
+CFLAGS= /I. /Iconfig
 
-CC = cl /Od
-#CC = cl386 /u /Od
+#CC = cl /Od
+CC = cl386 /u /Od
 
 # fake error integer for systems with no Unix error info like 1991 NT
 #
@@ -28,9 +28,9 @@ CC1INSNOBJ = insn-emt.obj insn-xrt.obj insn-out.obj insn-pep.obj insn-rcg.obj \
 CC1DEPS: insn-flg.h insn-cod.h insn-cnf.h insn-emt.c insn-pep.c insn-rcg.c \
 	insn-xrt.c insn-out.c insn-out.obj
 
-CCCPOBJ = cccp.obj cexp.obj version.obj obstack.obj alloca.obj
+CCCPOBJ = cccp.obj cexp.obj version.obj obstack.obj alloca.obj $(ERRNO)
 
-GCCOBJ = gcc.obj version.obj obstack.obj alloca.obj mktemp.obj
+GCCOBJ = gcc.obj version.obj obstack.obj alloca.obj mktemp.obj $(ERRNO)
 
 all: cc1.exe cccp.exe xgcc.exe
 
@@ -46,10 +46,10 @@ cc1x.exe: $(CC1DEPS) $(CC1OBJ) $(CC1INSNOBJ) insn-flg.h insn-cnf.h
 	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:cc1.exe $(CC1OBJ) $(CC1INSNOBJ) alloca.obj $(conlibs)
 
 cccp.exe: $(CCCPOBJ)
-	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:cccp.exe $(CCCPOBJ) $(conlibs)
+	$(link) $(conflags) -out:cccp.exe $(CCCPOBJ) $(conlibs)
 
 xgcc.exe: gcc.obj $(GCCOBJ)
-	link /NODEFAULTLIB:libc.lib /NODEFAULTLIB:OLDNAMES.LIB  -out:xgcc.exe $(GCCOBJ) $(conlibs)
+	$(link) $(conflags) -out:xgcc.exe $(GCCOBJ) $(conlibs)
 
 
 genflags.exe: c-tab.obj c-decl.obj c-typeck.obj c-conv.obj toplev.obj \

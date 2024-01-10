@@ -1,0 +1,31 @@
+# Nmake macros for building Windows 32-Bit apps
+CPU=i386
+!include <ntwin32.mak>
+#
+#CFLAGS= /Ic:\xenixnt\h /I. /Iconfig
+#CFLAGS= /Ic:\msvc32s\c386\include /I. /Iconfig
+#CFLAGS= /Ic:\msvc32s\include /I. /Iconfig
+#CFLAGS= /I. /Iconfig
+CPPFLAGS= # /I\nt\mstools\include
+
+#CC = cl /Od
+#CC = cl386 /u /Od
+
+OBJS = hi.obj
+
+.c.obj:
+	cccp.exe -v -undef -D__GNUC__ -Di386 $(CPPFLAGS) $< $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
+
+
+hi.exe:	$(OBJS)
+	$(link) $(conflags) -out:hi.exe $(OBJS) $(conlibs)
+
+
+clean:
+	del /F *.obj
+	del /F *.exe
+	del /F insn-*
+	del /F stamp-*
+	del /F c-parse.output c-tab.c
