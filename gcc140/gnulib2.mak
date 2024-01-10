@@ -9,55 +9,104 @@ OBJS = _adddi3.obj _subdi3.obj _muldi3.obj _divdi3.obj _moddi3.obj _udivdi3.obj 
 
 
 
+CPPFLAGS = /Iconfig
 
 gnulib2.lib: $(OBJS)
+	move _*.obj gnulib2
 	lib /out:gnulib2.lib gnulib2\*.obj
 
 
 _adddi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
+
 _subdi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _muldi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _divdi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _moddi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _udivdi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _umoddi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _negdi2.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _anddi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _iordi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _xordi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _lshrdi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _lshldi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _ashldi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _ashrdi3.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _one_cmpldi2.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _bdiv.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _cmpdi2.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _ucmpdi2.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _fixunsdfdi.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _fixdfdi.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _floatdidf.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 _varargs.obj:
-	xgcc -B. -Iconfig -DL$* -c gnulib2.c -ognulib2/$*.obj
+	CL386 /E /u -D__GNUC__ -Di386 -DL$* $(CPPFLAGS) gnulib2.c > $*.i
+	cc1 -version -quiet -o $*.s $*.i
+	ax386 -version -o $*.obj $*.s
 

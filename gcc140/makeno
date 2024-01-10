@@ -12,7 +12,7 @@ CC = cl386 /u /Od
 
 # fake error integer for systems with no Unix error info like 1991 NT
 #
-ERRNO =	#errno.obj
+ERRNO =	errno.obj
 
 CC1OBJ = c-tab.obj c-decl.obj c-typeck.obj c-conv.obj toplev.obj version.obj \
 	tree.obj pr-tree.obj stor-lay.obj fold-con.obj rtl.obj rtlanal.obj \
